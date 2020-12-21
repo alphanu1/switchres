@@ -35,7 +35,7 @@ MODULE_API void sr_init() {
 	swr->parse_config("switchres.ini");
 }
 
-MODULE_API void sr_load_ini(string config) {
+MODULE_API void sr_load_ini() {
 }
 
 
