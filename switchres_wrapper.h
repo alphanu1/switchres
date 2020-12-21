@@ -15,7 +15,7 @@
  #ifdef __cplusplus
 extern "C" {
 #endif
-
+#include <string>
 #ifdef __linux__
 #include <dlfcn.h>
 #define LIBTYPE void*
@@ -74,6 +74,7 @@ typedef struct MODULE_API {
 } sr_mode;
 
 MODULE_API void sr_init();
+MODULE_API void sr_load_ini(string config);
 MODULE_API void sr_deinit();
 MODULE_API void sr_init_disp();
 MODULE_API unsigned char sr_add_mode(int, int, double, unsigned char, sr_mode*);
