@@ -18,6 +18,7 @@
 #include "log.h"
 #include <stdio.h>
 #include <locale>
+#include <string>
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -32,6 +33,11 @@ MODULE_API void sr_init() {
 	swr->set_log_info_fn((void *)printf);
 	swr->set_log_error_fn((void *)printf);
 	swr->parse_config("switchres.ini");
+}
+
+MODULE_API void load_ini(string config)
+{
+	swr->parse_config(config+".ini");
 }
 
 

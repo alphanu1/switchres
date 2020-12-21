@@ -26,7 +26,7 @@ extern "C" {
 
 #elif defined _WIN32
 #include <windows.h>
-//#include <string>
+
 #define LIBTYPE HINSTANCE
 #define OPENLIB(libname) LoadLibrary(TEXT((libname)))
 #define LIBFUNC(lib, fn) GetProcAddress((lib), (fn))
@@ -51,6 +51,8 @@ char* LIBERROR()
 #define CLOSELIB(libp) FreeLibrary((libp))
 #endif
 
+#include <string>
+
 #ifdef _WIN32
     #ifdef MODULE_API_EXPORTS
         #define MODULE_API __declspec(dllexport)
@@ -74,6 +76,7 @@ typedef struct MODULE_API {
 } sr_mode;
 
 MODULE_API void sr_init();
+MODULE_API void sr_load_ini();
 MODULE_API void sr_deinit();
 MODULE_API void sr_init_disp();
 MODULE_API unsigned char sr_add_mode(int, int, double, unsigned char, sr_mode*);
