@@ -35,11 +35,6 @@ MODULE_API void sr_init() {
 	swr->parse_config("switchres.ini");
 }
 
-MODULE_API void load_ini(string config)
-{
-	swr->parse_config(config+".ini");
-}
-
 
 MODULE_API void sr_init_disp() {
 	swr->add_display();
