@@ -18,7 +18,7 @@
 #include "log.h"
 #include <stdio.h>
 #include <locale>
-#include <string>
+//#include <string>
 #ifdef __cplusplus
 extern "C" {
 #endif
