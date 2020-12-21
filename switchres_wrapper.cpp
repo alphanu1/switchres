@@ -36,7 +36,7 @@ MODULE_API void sr_init() {
 }
 
 MODULE_API void sr_load_ini(char config[20]) {
-	char string[24] = {};
+	char string[30] = {};
 	strcpy(string, config);
 	swr->parse_config(string+'.'+'i'+'n'+'i');
 
