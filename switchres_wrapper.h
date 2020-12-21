@@ -26,7 +26,7 @@ extern "C" {
 
 #elif defined _WIN32
 #include <windows.h>
-
+//#include <string>
 #define LIBTYPE HINSTANCE
 #define OPENLIB(libname) LoadLibrary(TEXT((libname)))
 #define LIBFUNC(lib, fn) GetProcAddress((lib), (fn))
@@ -50,8 +50,6 @@ char* LIBERROR()
 }
 #define CLOSELIB(libp) FreeLibrary((libp))
 #endif
-
-#include <string>
 
 #ifdef _WIN32
     #ifdef MODULE_API_EXPORTS

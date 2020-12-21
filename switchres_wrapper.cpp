@@ -18,7 +18,6 @@
 #include "log.h"
 #include <stdio.h>
 #include <locale>
-//#include <string>
 #ifdef __cplusplus
 extern "C" {
 #endif
