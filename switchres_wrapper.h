@@ -74,7 +74,7 @@ typedef struct MODULE_API {
 } sr_mode;
 
 MODULE_API void sr_init();
-MODULE_API void sr_load_ini(char config[20]);
+MODULE_API void sr_load_ini(char* config);
 MODULE_API void sr_deinit();
 MODULE_API void sr_init_disp();
 MODULE_API unsigned char sr_add_mode(int, int, double, unsigned char, sr_mode*);
