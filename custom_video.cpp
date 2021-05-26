@@ -29,6 +29,9 @@
 #ifdef SR_WITH_KMSDRM
 #include "custom_video_drmkms.h"
 #endif
+#ifdef SR_WITH_VC4
+#include "custom_video_pi.h"
+#endif
 #endif
 
 

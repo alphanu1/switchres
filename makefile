@@ -38,6 +38,16 @@ else
     SRC += custom_video_xrandr.cpp
 endif
 
+HAS_VALID_VC4 := $(shell $(PKG_CONFIG) --cflags bcm_host; echo $$?)
+ifeq ($(HAS_VALID_VC4),1)
+    $(info Switchres needs bcm_host. VC4 support is disabled)
+else
+    $(info VC4 support enabled)
+    CPPFLAGS += -DSR_WITH_PI
+    SRC += custom_video_pi.cpp
+endif
+
+
 HAS_VALID_DRMKMS := $(shell $(PKG_CONFIG) --libs "libdrm >= 2.4.98"; echo $$?)
 ifeq ($(HAS_VALID_DRMKMS),1)
     $(info Switchres needs libdrm >= 2.4.98. KMS support is disabled)

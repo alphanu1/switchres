@@ -55,6 +55,11 @@ bool linux_display::init()
 	if (!strcmp(m_ds.api, "drmkms"))
 		method = CUSTOM_VIDEO_TIMING_DRMKMS;
 #endif
+#ifdef SR_WITH_VC4
+	if (!strcmp(m_ds.api, "VC4"))
+		method = CUSTOM_VIDEO_TIMING_PI;
+#endif
+
 
 	set_factory(new custom_video);
 	set_custom_video(factory()->make(m_ds.screen, NULL, method, &m_ds.vs));
