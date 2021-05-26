@@ -129,7 +129,7 @@ bool pi_timing::update_mode(modeline *mode)
 	if (strcmp(get_vc4_mode(), set_hdmi_timing) ==0)
 	{
 		log_verbose("Updated VC4 timmings to %s \n", set_hdmi_timing);
-		resize_fb(mode->hactive, mode->vactive)
+		resize_fb(mode->hactive, mode->vactive);
 		return true;
 	}
 	
@@ -162,7 +162,7 @@ bool pi_timing::resize_fb(unsigned width ,unsigned height)
 		Currently done using fbset. Need to to this via code.
 	*/
 	char* output = NULL:
-	snprintf(output,  sizeof(output1),
+	snprintf(output,  sizeof(output),
          "fbset -g %d %d %d %d 24 > /dev/null",
          width, height, width, height);
     system(output);
