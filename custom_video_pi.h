@@ -24,7 +24,7 @@ class pi_timing : public custom_video
 	public:
 		pi_timing(char *device_name, custom_video_settings *vs);
 		~pi_timing() {};
-		const char *api_name() { return "ATI Legacy"; }
+		const char *api_name() { return "VCHI"; }
 		bool init();
 		int caps() { return CUSTOM_VIDEO_CAPS_UPDATE; }
 
