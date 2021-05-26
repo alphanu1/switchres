@@ -26,7 +26,7 @@ class pi_timing : public custom_video
 		~pi_timing() {};
 		const char *api_name() { return "VC4"; }
 		bool init();
-		int caps() { return CUSTOM_VIDEO_CAPS_UPDATE; }
+		int caps() { return CUSTOM_VIDEO_CAPS_UPDATE | CUSTOM_VIDEO_CAPS_SCAN_EDITABLE; }
 
 		bool update_mode(modeline *mode);
 
@@ -41,6 +41,9 @@ class pi_timing : public custom_video
 		VCHI_INSTANCE_T vchi_instance;
 		VCHI_CONNECTION_T *vchi_connection  = NULL;
 		char* pi_timing::get_vc4_mode();
-		bool pi_timing::resize_fb()
+		bool pi_timing::resize_fb();
+
+		char m_display_name[32];
+		char m_device_key[128];
 
 };

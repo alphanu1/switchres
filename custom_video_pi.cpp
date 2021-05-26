@@ -22,11 +22,9 @@
 
 pi_timing::pi_timing(char *device_name, custom_video_settings *vs)
 { 
-	/* What needs to go here ??
 	 m_vs = *vs;
 	 strcpy (m_device_name, device_name);
 	 strcpy (m_device_key, m_vs.device_reg_key);
-	*/
 }
 
 //============================================================
@@ -125,12 +123,13 @@ bool pi_timing::set_timing(modeline *mode)
 bool pi_timing::update_mode(modeline *mode)
 {
 	vc_vchi_gencmd_init(vchi_instance, &vchi_connection, 1);
-	vc_gencmd(buffer, sizeof(buffer), active_mode);
+	vc_gencmd(buffer, sizeof(buffer), set_hdmi_timing);
 	vc_gencmd_stop();
 
 	if (strcmp(get_vc4_mode(), set_hdmi_timing) ==0)
 	{
 		log_verbose("Updated VC4 timmings to %s \n", set_hdmi_timing);
+		resize_fb(mode->hactive, mode->vactive)
 		return true;
 	}
 	
@@ -157,10 +156,16 @@ char* pi_timing::get_vc4_mode()
 	return active_timing;
 }
 
-bool pi_timing::resize_fb()
+bool pi_timing::resize_fb(unsigned width ,unsigned height)
 {
 	/*  ToDo
 		Currently done using fbset. Need to to this via code.
 	*/
+	char* output = NULL:
+	snprintf(output,  sizeof(output1),
+         "fbset -g %d %d %d %d 24 > /dev/null",
+         width, height, width, height);
+    system(output);
+
 	return true;
 }
